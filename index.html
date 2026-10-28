@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple task manager to organize daily work.">
+  <title>TaskFlow | Todo Application</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+        <h1>TaskFlow <span>✓</span></h1>
+        <p class="subtitle">Make today count, one task at a time.</p>
+      </div>
+      <div class="date-card">
+        <span id="today"></span>
+        <strong id="date"></strong>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Task statistics">
+      <article class="stat-card">
+        <span>Total tasks</span>
+        <strong id="totalCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Completed</span>
+        <strong id="completedCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Remaining</span>
+        <strong id="remainingCount">0</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Add a new task</h2>
+      <form id="taskForm">
+        <label class="sr-only" for="taskInput">Task description</label>
+        <input id="taskInput" type="text"
+          placeholder="What do you need to do?" maxlength="150" required>
+
+        <label class="sr-only" for="priority">Priority</label>
+        <select id="priority" aria-label="Task priority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <button class="add-btn" type="submit">+ Add Task</button>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="tasks-section">
+      <div class="tasks-heading">
+        <div>
+          <h2>My Tasks</h2>
+          <p>Keep your day organized.</p>
+        </div>
+        <button id="clearCompleted" class="text-btn" type="button">
+          Clear completed
+        </button>
+      </div>
+
+      <nav class="filters" aria-label="Filter tasks">
+        <button class="filter active" data-filter="all" type="button">All</button>
+        <button class="filter" data-filter="active" type="button">Active</button>
+        <button class="filter" data-filter="completed" type="button">Completed</button>
+      </nav>
+
+      <ul id="taskList" class="task-list"></ul>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">✓</div>
+        <h3>No tasks yet</h3>
+        <p>Add a task above to get started.</p>
+      </div>
+    </section>
+
+    <footer>
+      Built with HTML, CSS and JavaScript · TaskFlow
+    </footer>
+  </main>
+</body>
+</html>
